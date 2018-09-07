@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>krypt</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+
+  <body>
+    <h1>KRYPT</h1>
+
+    <ul>
+      <li><a class="active" href="enkrypt">enkrypt</a></li>
+      <li><a href="dekrypt">dekrypt</a></li>
+    </ul>
+
+        texte a enkrypter <textarea id="toEnkrypt"></textarea><br>
+        tableau d'enkryptage :<br>
+
+
+      <div id="enkryptiontable">
+        <i>a</i>=<textarea rows="1" cols="1">a</textarea>
+        <i>b</i>=<textarea rows="1" cols="1">b</textarea><br>
+        <i>c</i>=<textarea rows="1" cols="1">c</textarea>
+        <i>d</i>=<textarea rows="1" cols="1">d</textarea><br>
+        <i>e</i>=<textarea rows="1" cols="1">e</textarea>
+        <i>f</i>=<textarea rows="1" cols="1">f</textarea><br>
+        <i>g</i>=<textarea rows="1" cols="1">g</textarea>
+        <i>h</i>=<textarea rows="1" cols="1">h</textarea><br>
+        <i>i</i>=<textarea rows="1" cols="1">i</textarea>
+        <i>j</i>=<textarea rows="1" cols="1">j</textarea><br>
+        <i>k</i>=<textarea rows="1" cols="1">k</textarea>
+        <i>l</i>=<textarea rows="1" cols="1">l</textarea><br>
+        <i>m</i>=<textarea rows="1" cols="1">m</textarea>
+        <i>n</i>=<textarea rows="1" cols="1">n</textarea><br>
+        <i>o</i>=<textarea rows="1" cols="1">o</textarea>
+        <i>p</i>=<textarea rows="1" cols="1">p</textarea><br>
+        <i>q</i>=<textarea rows="1" cols="1">q</textarea>
+        <i>r</i>=<textarea rows="1" cols="1">r</textarea><br>
+        <i>s</i>=<textarea rows="1" cols="1">s</textarea>
+        <i>t</i>=<textarea rows="1" cols="1">t</textarea><br>
+        <i>u</i>=<textarea rows="1" cols="1">u</textarea>
+        <i>v</i>=<textarea rows="1" cols="1">v</textarea><br>
+        <i>w</i>=<textarea rows="1" cols="1">w</textarea>
+        <i>x</i>=<textarea rows="1" cols="1">x</textarea><br>
+        <i>y</i>=<textarea rows="1" cols="1">y</textarea>
+        <i>z</i>=<textarea rows="1" cols="1">z</textarea><br>
+      </div>
+        <button type="button" onclick="letterSwap()">enkrypter</button>
+
+        resultat : <textarea id="kryptedText"></textarea>
+        <script> //DEBUT SCRIPT LETTERSWAP
+          function letterSwap() {
+            toEnkrypt = document.getElementById("toEnkrypt").value;
+            tabkryptedletters = document.querySelectorAll("#enkryptiontable textarea");
+            tabletters = document.querySelectorAll("#enkryptiontable i");
+            var enkrypted = '', j=1, k; // j initialisé a 1 pour "encercler" les caractères de la string en substring
+
+            for(var i = 0; i < toEnkrypt.length ; i++){
+              k = 0;
+              while(toEnkrypt.substring(i,j) !== tabletters[k].innerHTML){
+                k++;
+                if (k == tabletters.length){
+                  break;
+                }
+              }
+              if (k==tabletters.length) {
+                alert("if");
+                enkrypted = enkrypted + toEnkrypt.substring(i,j);
+              }
+              else {
+                alert("else");
+                enkrypted = enkrypted + tabkryptedletters[k].value;
+              }
+              j++;
+            }
+            alert("sortie");
+            document.getElementById("kryptedText").innerHTML = enkrypted;
+          }//FIN SCRIPT LETTERSWAP
+      </script><!--améliorations a faire : tableau associatif pour tabletters et tabenkryptedletters ;;; foreach pour parcourirs le tablea-->
+    </body>
+  <!--
+  <form action="/action_page.php">
+    d'encryptage <input type="text" name="appliquerclé">
+    <input type="submit" value="appliquer"> /*récupere la table de la base de donnée, et modifier le tabkryptedletters local*/
+  </form>
+-->
+
+
+
+  <br> 
+
+    <footer>
+      <p>please consider website in build state <p>
+      <address>
+        <p>Yoann Mourot <br> yoann.mourot@outlook.fr</p>
+      </address>
+    </footer>

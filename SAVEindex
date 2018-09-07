@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>krypt</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+
+  <body>
+    <h1>KRIPT</h1>
+
+    <ul>
+      <li><a class="active" href="enkrypt">enkrypt</a></li>
+      <li><a href="dekrypt">dekrypt</a></li>
+    </ul>
+
+        texte a enkrypter <textarea id="toEnkrypt"></textarea><br>
+        tableau d'ecryptage :<br>
+
+
+      <div id="enkryptiontable">
+        <i>a</i>=<textarea>a</textarea><br>
+        <i>e</i>=<textarea>e</textarea><br>
+        <i>i</i>=<textarea>i</textarea><br>
+      </div>
+
+        <input type="submit" onclick="myFunction()" value="enkrypter">
+
+        resultat : <textarea id="kryptedText"></textarea>
+        <script>
+
+          function myFunction() {
+
+            toEnkrypt = document.getElementById("toEnkrypt").innerHTML;
+            tabkryptedletters = document.querySelectorAll("#enkryptiontable textarea");
+            tabletters = document.querySelectorAll("#enkryptiontable i");
+            var enkrypted = '';
+            var j= 0;
+            var k;
+
+            for(var i = 0; i <= toEnkrypt.length ; i++){
+              k = 0;
+              j++;
+
+              while(toEnkrypt.substring(i,j) != tabletters[k].innerHTML){
+                k++;
+              }
+              enkrypted = enkrypted + tabkryptedletters[k].innerHTML;
+            }
+            document.getElementById("kryptedText").innerHTML = enkrypted;
+          }
+      </script>
+    </div>
+
+<!--<form action="/action_page.php">
+    utiliser la clé d'encryptage<input type="text" name="appliquerclé">
+    <input type="submit" value="appliquer"> /*récupere la table de la base de donnée, et modifier le encryptab local*/
+  </form>-->
+
+  </body>
+
+  <br>
+  <br>
+  <br>
+
+    <footer>
+      <p>please consider website in build state <p>
+      <address>
+        <p>Yoann Mourot <br> yoann.mourot@outlook.fr</p>
+      </address>
+    </footer>
